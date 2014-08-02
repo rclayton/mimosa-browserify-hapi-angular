@@ -1,0 +1,12 @@
+{
+  "name": "mimosa-browserify-hapi-angular",
+  "version": "0.0.1",
+  "author": "",
+  "description": "Mimosa scaffolding for using Hapi+Angular+Bootstrap in a Browserify environment.",
+  "dependencies": {
+    "coffee-script": "1.6.3",
+    "consolidate": "0.9.1",
+    "hapi": "^6.2.2",
+    "jade": "0.34.1"
+  }
+}
