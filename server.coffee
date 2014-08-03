@@ -1,37 +1,39 @@
-Hapi = require('hapi')
+Hapi = require 'hapi'
 
 exports.startServer = (config, callback) ->
 
   port = process.env.PORT or config.server.port
 
-  server = new Hapi.Server('localhost', 3000)
+  server = new Hapi.Server 'localhost', 3000
 
   # Default Route (serve index.html)
-  server.route({
+  server.route {
       method: 'GET'
       path: '/'
       handler: (req, reply) ->
-        reply.file('public/index.html')
-  })
+        reply.file 'public/index.html'
+  }
 
   # Statically load public assets.
-  server.route({
+  server.route {
       method: 'GET'
       path: '/public/{param*}'
       handler:
         directory:
           path: 'public'
           listing: true
-  })
+  }
 
-  server.route({
+  server.route {
       method: 'GET'
       path: '/message'
       handler: (req, reply) ->
-        reply({
+        reply {
           "message": "Hello from Server!"
-        })
-  })
+        }
+  }
 
   server.start ->
-    console.log('Server running at:', server.info.uri)
+    console.log 'Server running at:', server.info.uri
+
+  callback server.listener
