@@ -4,7 +4,7 @@ exports.startServer = (config, callback) ->
 
   port = process.env.PORT or config.server.port
 
-  server = new Hapi.Server 'localhost', 3000
+  server = new Hapi.Server 'localhost', port
 
   # Default Route (serve index.html)
   server.route {
